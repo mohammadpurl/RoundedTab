@@ -1,0 +1,233 @@
+/******************************************************************************
+# REFERÊNCIAS
+[1] Tabs with CSS3 & HTML5 only
+https://codepen.io/CesarVMB/pen/nLhAa
+
+[2] Pure CSS Tabs With Indicator
+https://codepen.io/woranov/pen/NRqLWK
+
+[3] Featured Tabs
+https://codepen.io/RGonyeau/pen/Mvrzxx
+
+[4] No JS: Tabs that scale down to menu
+https://codepen.io/jakealbaugh/pen/KBsIo
+
+[5] Simple Tabs
+https://codepen.io/johndjameson/pen/ecmlu
+
+[6] Sliding tabs | CSS transitions only
+https://codepen.io/havardob/pen/ExVaELV
+
+[7] Tabs on desktop, accordion on mobile
+https://codepen.io/gsarig/pen/GWgNdx
+
+[8] Modern Tabs Design with pure CSS
+https://codepen.io/iprodev/pen/yygvPx
+
+[9] css tabs
+https://codepen.io/_massimo/pen/oYWbqL
+
+[10] Dynamic Tabs
+https://codepen.io/ehrenglaube/pen/KpvdPb
+
+[11] Responsive pure css tabs
+https://codepen.io/imprakash/pen/epZvbQ
+
+[12] Flexbox Tabs
+https://codepen.io/indyplanets/pen/qBuLi
+
+[13] Responsive Flex Layout With Tabs - Material Design
+https://codepen.io/kylelavery88/pen/wMQqar
+
+[14] Tabs
+https://codepen.io/axelaredz/pen/ipome
+
+[15] Responsive Full Width Tabs
+https://tympanus.net/codrops/2014/03/21/responsive-full-width-tabs/
+
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  --primary-color: #185ee0;
+  --secondary-color: #e6eef9;
+}
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*===============================================
+1. General
+===============================================*/
+
+/*===============================================
+2. Tabbed Styles
+===============================================*/
+
+.tabbed {
+  width: 100%;
+  min-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 68px;
+  /* border-bottom: 4px solid #000; */
+  overflow: hidden;
+  transition: border 250ms ease;
+}
+.tabbed ul {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  float: left;
+  padding-left: 48px;
+  list-style-type: none;
+}
+.tabbed ul * {
+  margin: 0px;
+  padding: 0px;
+}
+.tabbed label {    
+    background-color: #fff;
+    margin-right: 46px;
+    z-index: 2;
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+    font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
+    transition: all 250ms ease;
+    gap: 5px;
+    align-items: center;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    box-shadow: 5px 6px 6px #dfdede;
+    background: #FFF;
+    margin-left: 10px;
+    color: #193761;
+    text-align: center;
+    width: 100px;
+    -webkit-box-flex: 1;
+    min-width: 15%;
+    flex: 1 1 25%;
+    height: 60px;
+  }
+ 
+.tabbed label:before,
+.tabbed label:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50px;
+  background-color: #fff;
+  transition: all 250ms ease;
+  /* margin-left:10px */
+}
+.tabbed label:before {
+  right: -24px;
+  transform: skew(30deg, 0deg);
+  box-shadow: rgba(0, 0, 0, 0.1) 3px 2px 5px,
+    inset rgba(255, 255, 255, 0.09) -1px 0;
+}
+.tabbed label:after {
+  left: -24px;
+  transform: skew(-30deg, 0deg);
+  box-shadow: rgba(0, 0, 0, 0.1) -3px 2px 5px,
+    inset rgba(255, 255, 255, 0.09) 1px 0;
+}
+.tabbed label:hover,
+.tabbed label:hover:before,
+.tabbed label:hover:after {
+  background-color: #f4f7f9;
+  color: #444;
+}
+.tabbed label.active {
+  z-index: 3;
+}
+.tabbed label.active,
+.tabbed label.active:before,
+.tabbed label.active:after {
+  background-color: #000;
+  color: #fff;
+}
+
+/*----- Round Tabs -----*/
+.tabbed.round label {
+  border-radius: 8px 8px 0 0;
+}
+.tabbed.round label:before {
+  border-radius: 0 8px 0 0;
+}
+.tabbed.round label:after {
+  border-radius: 8px 0 0 0;
+}
+.tabbed label img{
+    position: relative;
+    z-index: 1000;
+}
+/* Medias */
+@media (min-width: 768px){
+    .tabs label span{
+        display: flex;
+        top: 50%;
+        
+    }
+}
+@media (max-width:908px) {
+    .tabs{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    .tabs label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: 75px;
+        gap: 2px;
+        max-width: 50px;
+        height: 85px;
+      }
+    
+      /* Center the image vertically */
+      .tabs label .icon {
+        margin: 0 auto;
+      }
+    .tabs label span{
+        top: 30%;
+        font-size:12px;
+        font-weight:500;
+        display:inline-block;
+        vertical-align: middle;
+    }
+        
+}
+@media (max-width:768px) {
+    
+    .tabs label {
+        width: 100%;
+    }
+    .tabs label span{
+        top: 30%;
+        font-size:10px;
+        font-weight:600;
+        padding:0;
+        margin: 0;
+    }
+    .icon {
+        width: 50px;
+        height: 50px;
+    }  
+
+    
+
+}
